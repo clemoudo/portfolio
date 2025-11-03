@@ -10,8 +10,8 @@ export default function HomePage() {
         </h1>
         <p className="text-foreground/80 mt-6 max-w-2xl text-lg sm:text-xl">
           Développeur Full-Stack spécialisé dans la conception et le
-          développement d'applications web performantes, de l'API RESTful à
-          l'interface utilisateur réactive.
+          développement d&apos;applications web performantes, de l&apos;API
+          RESTful à l&apos;interface utilisateur réactive.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link
