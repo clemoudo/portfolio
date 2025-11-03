@@ -12,7 +12,7 @@ export default function Footer() {
         {/* Liens sociaux/contact sur la droite */}
         <div className="flex items-center gap-4">
           <Link
-            href="https://github.com/clemoudo"
+            href="https://github.com/clemoudo/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-foreground/80 transition-colors"
@@ -20,7 +20,7 @@ export default function Footer() {
             GitHub
           </Link>
           <Link
-            href="https://linkedin.com/in/ton-username"
+            href="https://linkedin.com/in/clément-v-26ab7938a/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-foreground/80 transition-colors"
