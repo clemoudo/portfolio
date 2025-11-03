@@ -4,9 +4,11 @@ type PortfolioDetailPageProps = {
   }>;
 };
 
-export default async function PortfolioDetailPage({ params }: PortfolioDetailPageProps) {
+export default async function PortfolioDetailPage({
+  params,
+}: PortfolioDetailPageProps) {
   const resolvedParams = await params;
   const { slug } = resolvedParams;
 
-  return <h1>Détail de l'activité : {slug}</h1>;
+  return <h1>Détail de l&apos;activité : {slug}</h1>;
 }
