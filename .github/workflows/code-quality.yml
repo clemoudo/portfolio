@@ -37,6 +37,7 @@ jobs:
         with:
           node-version: '24' # Utilise une version LTS récente de Node
           cache: 'pnpm'
+          cache-dependency-path: ./portfolio-web-app/pnpm-lock.yaml
 
       # 4. Installe les dépendances du projet
       - name: Install dependencies
