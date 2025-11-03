@@ -19,31 +19,39 @@ export type Activity = {
 
 export const portfolioData: Activity[] = [
   {
-    slug: 'hackathon-economie-circulaire-2023',
+    slug: "hackathon-economie-circulaire-2023",
     title: "Hackathon sur l'Économie Circulaire",
-    theme: 'Développement Durable & Soft Skills',
-    date: 'Septembre 2023',
+    theme: "Développement Durable & Soft Skills",
+    date: "Septembre 2023",
     description:
       "Participation à un hackathon de 48h visant à prototyper une solution numérique pour la gestion des déchets.",
     analysis:
       "<p>Cette expérience a été extrêmement formatrice...</p><p>J'ai pu mettre en pratique mes compétences en React dans un contexte de pression temporelle...</p>",
     proofs: [
-      { label: 'Projet sur GitHub', url: 'https://github.com/votre-projet-1' },
-      { label: 'Présentation finale (PDF)', url: '/documents/presentation-hackathon.pdf' },
+      { label: "Projet sur GitHub", url: "https://github.com/votre-projet-1" },
+      {
+        label: "Présentation finale (PDF)",
+        url: "/documents/presentation-hackathon.pdf",
+      },
     ],
     realHours: 48,
     valuedHours: 10,
   },
   {
-    slug: 'formation-api-rest-fastapi',
-    title: 'Formation en ligne : API REST avec FastAPI',
-    theme: 'Développement Back-end',
-    date: 'Juillet 2023',
+    slug: "formation-api-rest-fastapi",
+    title: "Formation en ligne : API REST avec FastAPI",
+    theme: "Développement Back-end",
+    date: "Juillet 2023",
     description:
       "Cours complet sur la création d'API performantes en Python avec le framework FastAPI.",
     analysis:
       "<p>Cette formation m'a permis de solidifier mes bases en développement back-end Python...</p>",
-    proofs: [{ label: 'Certificat de réussite', url: 'https://lien-vers-le-certificat.com' }],
+    proofs: [
+      {
+        label: "Certificat de réussite",
+        url: "https://lien-vers-le-certificat.com",
+      },
+    ],
     realHours: 15,
     valuedHours: 10,
   },
