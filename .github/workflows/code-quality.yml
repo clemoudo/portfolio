@@ -1,0 +1,47 @@
+name: Code Quality Check
+
+# Déclenche le workflow sur les push et les pull requests
+# vers la branche `main`. Adapte si ta branche s'appelle `master`.
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# Un workflow est composé d'un ou plusieurs "jobs" qui s'exécutent en parallèle ou séquentiellement
+jobs:
+  # Nom du job
+  lint-and-format:
+    # Le type de machine sur laquelle exécuter le job. `ubuntu-latest` est le standard.
+    runs-on: ubuntu-latest
+
+    # Les étapes à exécuter
+    steps:
+      # 1. Récupère le code de ton dépôt
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Met en place pnpm
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+
+      # 3. Met en place Node.js, en utilisant le cache de pnpm pour accélérer les installations
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24' # Utilise une version LTS récente de Node
+          cache: 'pnpm'
+
+      # 4. Installe les dépendances du projet
+      - name: Install dependencies
+        run: pnpm install
+
+      # 5. Exécute le linter pour vérifier les erreurs de code
+      - name: Run ESLint
+        run: pnpm lint
+
+      # 6. Vérifie le formatage du code avec Prettier (en mode --check)
+      - name: Check code formatting
+        run: pnpm format:check
