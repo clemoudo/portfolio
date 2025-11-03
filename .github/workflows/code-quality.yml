@@ -15,11 +15,15 @@ jobs:
     # Le type de machine sur laquelle exécuter le job. `ubuntu-latest` est le standard.
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./web-app
+
     # Les étapes à exécuter
     steps:
       # 1. Récupère le code de ton dépôt
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # 2. Met en place pnpm
       - name: Setup PNPM
