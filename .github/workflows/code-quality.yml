@@ -4,7 +4,7 @@ name: Code Quality Check
 # vers la branche `main`. Adapte si ta branche s'appelle `master`.
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
   pull_request:
     branches: [ "main" ]
 
