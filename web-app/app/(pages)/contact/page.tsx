@@ -59,7 +59,12 @@ export default function ContactPage() {
             rel="noopener noreferrer"
             className="text-foreground/60 hover:text-foreground transition-colors"
           >
-            <Image src={githubIcon} width={50} height={50} alt="Github Icon" />
+            <Image
+              src={githubIcon}
+              width={50}
+              height={50}
+              className="dark:invert"
+              alt="Github Icon" />
             <span className="sr-only">GitHub</span>
           </a>
           <a
@@ -72,6 +77,7 @@ export default function ContactPage() {
               src={linkedinIcon}
               width={50}
               height={50}
+              className="dark:invert"
               alt="LinkedIn Icon"
             />
             <span className="sr-only">LinkedIn</span>
