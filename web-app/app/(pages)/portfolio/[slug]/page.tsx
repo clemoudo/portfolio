@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { portfolioData } from "@/data/portfolio";
 import { ArrowLeft, ExternalLink, Hourglass, Target } from "lucide-react";
+import { formatHours } from "@/lib/formatters";
 
 export async function generateStaticParams() {
   return portfolioData.map((activity) => ({
@@ -65,7 +66,8 @@ export default async function PortfolioDetailPage({
                 <div>
                   <h4 className="font-medium">Temps Investi</h4>
                   <p className="text-foreground/80 text-sm">
-                    {activity.realHours}h (Réel) / {activity.valuedHours}h
+                    {formatHours(activity.realHours)} (Réel) /{" "}
+                    {formatHours(activity.valuedHours)}
                     (Valorisé)
                   </p>
                 </div>

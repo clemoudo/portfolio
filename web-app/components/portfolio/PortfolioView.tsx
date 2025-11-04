@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { portfolioData, Activity } from "@/data/portfolio"; // Importez les données
+import { portfolioData, Activity } from "@/data/portfolio";
 import { LayoutGrid, List } from "lucide-react";
+import { formatHours } from "@/lib/formatters";
 
-// Vue Grille (code que nous avions déjà)
+// Vue Grille
 const GridView = ({ activities }: { activities: Activity[] }) => (
   <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
     {activities.map((activity) => (
@@ -87,7 +88,7 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
               </td>
               <td className="px-6 py-4">{activity.theme}</td>
               <td className="px-6 py-4">{activity.date}</td>
-              <td className="px-6 py-4">{`${activity.realHours}h / ${activity.valuedHours}h`}</td>
+              <td className="px-6 py-4">{`${formatHours(activity.realHours)} / ${formatHours(activity.valuedHours)}`}</td>
             </tr>
           ))}
         </tbody>
@@ -102,7 +103,7 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
               Total
             </td>
             <td className="px-6 py-4 text-sm font-bold">
-              {`${totals.real}h / ${totals.valued}h`}
+              {`${formatHours(totals.real)} / ${formatHours(totals.valued)}`}
             </td>
           </tr>
         </tfoot>
