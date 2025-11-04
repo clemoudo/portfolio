@@ -64,7 +64,8 @@ export default function ContactPage() {
               width={50}
               height={50}
               className="dark:invert"
-              alt="Github Icon" />
+              alt="Github Icon"
+            />
             <span className="sr-only">GitHub</span>
           </a>
           <a
