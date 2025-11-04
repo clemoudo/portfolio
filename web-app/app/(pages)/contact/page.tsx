@@ -1,7 +1,7 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 import Image from "next/image";
-import githubIcon from "@/public/github.svg";
-import linkedinIcon from "@/public/linkedin.svg";
+import githubIcon from "@/public/icons/github.svg";
+import linkedinIcon from "@/public/icons/linkedin.svg";
 
 // Informations extraites de votre CV
 const email = "c.vier@students.ephec.be";
