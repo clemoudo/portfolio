@@ -32,57 +32,84 @@ const GridView = ({ activities }: { activities: Activity[] }) => (
 );
 
 // Vue Tableau
-const TableView = ({ activities }: { activities: Activity[] }) => (
-  <div className="mt-12 overflow-x-auto">
-    <table className="divide-border/40 min-w-full divide-y">
-      <thead className="bg-foreground/5">
-        <tr>
-          <th
-            scope="col"
-            className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
-          >
-            Titre
-          </th>
-          <th
-            scope="col"
-            className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
-          >
-            Thème
-          </th>
-          <th
-            scope="col"
-            className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
-          >
-            Date
-          </th>
-          <th
-            scope="col"
-            className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
-          >
-            Heures (Réelles/Valorisées)
-          </th>
-        </tr>
-      </thead>
-      <tbody className="divide-border/40 divide-y">
-        {activities.map((activity) => (
-          <tr key={activity.slug} className="hover:bg-foreground/5">
-            <td className="whitespace-nowrap px-6 py-4">
-              <Link
-                href={`/portfolio/${activity.slug}`}
-                className="text-foreground font-semibold hover:underline"
-              >
-                {activity.title}
-              </Link>
-            </td>
-            <td className="whitespace-nowrap px-6 py-4">{activity.theme}</td>
-            <td className="whitespace-nowrap px-6 py-4">{activity.date}</td>
-            <td className="whitespace-nowrap px-6 py-4">{`${activity.realHours}h / ${activity.valuedHours}h`}</td>
+const TableView = ({ activities }: { activities: Activity[] }) => {
+  // 1. Calculer les totaux en utilisant la méthode .reduce()
+  const totals = activities.reduce(
+    (acc, activity) => {
+      acc.real += activity.realHours;
+      acc.valued += activity.valuedHours;
+      return acc;
+    },
+    { real: 0, valued: 0 }
+  );
+
+  return (
+    <div className="mt-12 overflow-x-auto">
+      <table className="divide-border/40 min-w-full divide-y">
+        <thead className="bg-foreground/5">
+          <tr>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+            >
+              Titre
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+            >
+              Thème
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+            >
+              Date
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+            >
+              Heures (Réelles/Valorisées)
+            </th>
           </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-);
+        </thead>
+        <tbody className="divide-border/40 divide-y">
+          {activities.map((activity) => (
+            <tr key={activity.slug} className="hover:bg-foreground/5">
+              <td className="whitespace-nowrap px-6 py-4">
+                <Link
+                  href={`/portfolio/${activity.slug}`}
+                  className="text-foreground font-semibold hover:underline"
+                >
+                  {activity.title}
+                </Link>
+              </td>
+              <td className="whitespace-nowrap px-6 py-4">{activity.theme}</td>
+              <td className="whitespace-nowrap px-6 py-4">{activity.date}</td>
+              <td className="whitespace-nowrap px-6 py-4">{`${activity.realHours}h / ${activity.valuedHours}h`}</td>
+            </tr>
+          ))}
+        </tbody>
+
+        {/* 2. Ajouter la section <tfoot> pour afficher les totaux */}
+        <tfoot className="border-border/40 bg-foreground/5 border-t">
+          <tr>
+            <td
+              colSpan={3}
+              className="px-6 py-4 text-right text-sm font-bold uppercase tracking-wider"
+            >
+              Total
+            </td>
+            <td className="whitespace-nowrap px-6 py-4 text-sm font-bold">
+              {`${totals.real}h / ${totals.valued}h`}
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  );
+};
 
 // Le composant principal qui gère le basculement
 export default function PortfolioView() {
