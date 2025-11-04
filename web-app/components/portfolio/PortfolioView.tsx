@@ -45,7 +45,7 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
 
   return (
     <div className="mt-12 overflow-x-auto">
-      <table className="divide-border/40 min-w-full divide-y">
+      <table className="divide-border/40 w-full divide-y">
         <thead className="bg-foreground/5">
           <tr>
             <th
@@ -77,7 +77,7 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
         <tbody className="divide-border/40 divide-y">
           {activities.map((activity) => (
             <tr key={activity.slug} className="hover:bg-foreground/5">
-              <td className="whitespace-nowrap px-6 py-4">
+              <td className="px-6 py-4">
                 <Link
                   href={`/portfolio/${activity.slug}`}
                   className="text-foreground font-semibold hover:underline"
@@ -85,9 +85,9 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
                   {activity.title}
                 </Link>
               </td>
-              <td className="whitespace-nowrap px-6 py-4">{activity.theme}</td>
-              <td className="whitespace-nowrap px-6 py-4">{activity.date}</td>
-              <td className="whitespace-nowrap px-6 py-4">{`${activity.realHours}h / ${activity.valuedHours}h`}</td>
+              <td className="px-6 py-4">{activity.theme}</td>
+              <td className="px-6 py-4">{activity.date}</td>
+              <td className="px-6 py-4">{`${activity.realHours}h / ${activity.valuedHours}h`}</td>
             </tr>
           ))}
         </tbody>
@@ -101,7 +101,7 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
             >
               Total
             </td>
-            <td className="whitespace-nowrap px-6 py-4 text-sm font-bold">
+            <td className="px-6 py-4 text-sm font-bold">
               {`${totals.real}h / ${totals.valued}h`}
             </td>
           </tr>
