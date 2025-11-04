@@ -5,9 +5,9 @@ export default function ProjetProPage() {
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
           Projet Professionnel
         </h1>
-        <p className="mt-4 text-lg text-foreground/80">
-          Ma vision, mes ambitions et l'analyse de mon positionnement
-          dans le paysage technologique actuel.
+        <p className="text-foreground/80 mt-4 text-lg">
+          Ma vision, mes ambitions et l'analyse de mon positionnement dans le
+          paysage technologique actuel.
         </p>
       </div>
 
@@ -26,14 +26,14 @@ export default function ProjetProPage() {
           d'architecture technique."]
         </p>
         <p>
-          [Vous pouvez ajouter d'autres paragraphes pour détailler les
-          domaines qui vous intéressent (e-commerce, fintech, santé...), les
+          [Vous pouvez ajouter d'autres paragraphes pour détailler les domaines
+          qui vous intéressent (e-commerce, fintech, santé...), les
           méthodologies que vous appréciez (Agile, Scrum), ou le type
           d'entreprise que vous ciblez (startup, grande entreprise, agence)."]
         </p>
       </div>
 
-      <hr className="my-12 border-border/40" />
+      <hr className="border-border/40 my-12" />
 
       {/* Section 2: Auto-analyse */}
       <div className="mt-12">
@@ -41,9 +41,8 @@ export default function ProjetProPage() {
           Auto-analyse
         </h2>
         <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          
           {/* Colonne des Forces */}
-          <div className="rounded-lg border border-border/40 bg-foreground/5 p-6">
+          <div className="border-border/40 bg-foreground/5 rounded-lg border p-6">
             <h3 className="text-xl font-semibold">Forces</h3>
             <ul className="prose mt-4 max-w-none list-disc pl-5">
               <li>
@@ -68,7 +67,7 @@ export default function ProjetProPage() {
           </div>
 
           {/* Colonne des Faiblesses */}
-          <div className="rounded-lg border border-border/40 bg-foreground/5 p-6">
+          <div className="border-border/40 bg-foreground/5 rounded-lg border p-6">
             <h3 className="text-xl font-semibold">Axes d'Amélioration</h3>
             <ul className="prose mt-4 max-w-none list-disc pl-5">
               <li>
@@ -93,7 +92,6 @@ export default function ProjetProPage() {
               {/* Ajoutez d'autres points à améliorer */}
             </ul>
           </div>
-
         </div>
       </div>
     </div>

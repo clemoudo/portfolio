@@ -8,7 +8,7 @@ export default function PortfolioPage() {
           Portfolio
         </h1>
         <p className="text-foreground/80 mt-4 text-lg">
-          Découvrez une sélection de projets et d&apos;activités de formation
+          Découvrez une sélection de projets et d'activités de formation
           continue qui ont contribué à mon développement professionnel.
         </p>
       </div>
