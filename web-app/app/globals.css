@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+
+  --foreground-muted: 240 5% 65%; /* Gris plus clair pour les textes secondaires */
+  --background-muted: 240 5% 96%; /* Gris très clair pour les fonds de blocs de code */
+  --border: 240 5.9% 90%;
+
+  /* Variables pour l'inversion en mode sombre */
+  --foreground-invert: 0 0% 98%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --foreground-muted: 240 5% 55%;
+    --background-muted: 240 4% 10%;
+    --border: 240 3.7% 15.9%;
+
+    --foreground-invert: 240 10% 3.9%;
+  }
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
