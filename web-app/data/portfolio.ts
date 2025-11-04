@@ -157,7 +157,8 @@ export const portfolioData: Activity[] = [
   {
     slug: "redsystem",
     title: "Formation cybersécurité RedSytem",
-    theme: "Cybersécurité (phishing et ransomware + sécurité des appareils mobiles)",
+    theme:
+      "Cybersécurité (phishing et ransomware + sécurité des appareils mobiles)",
     date: "Novembre 2025",
     description: "Formation de sensibilisation aux attaques communes.",
     analysis: `
@@ -238,8 +239,7 @@ export const portfolioData: Activity[] = [
     title: "Labo réseau sur du matériel physique",
     theme: "Réseau",
     date: "Avril 2024",
-    description:
-      "Manipulation de matériel Cisco physique.",
+    description: "Manipulation de matériel Cisco physique.",
     analysis: `
       <p>
         Ce laboratoire sur du matériel Cisco a été une étape déterminante dans ma
@@ -316,8 +316,7 @@ export const portfolioData: Activity[] = [
     title: "Cyber Security Challenge Belgium",
     theme: "Cybersécurité (CTF)",
     date: "Mars 2025",
-    description:
-      "Capture th flag sur la cybersécurité.",
+    description: "Capture th flag sur la cybersécurité.",
     analysis: `
       <p>
         Ma participation au Cyber Security Challenge Belgium a été une
@@ -391,8 +390,7 @@ export const portfolioData: Activity[] = [
     title: "Let's fix IT",
     theme: "Green IT",
     date: "Mars 2025",
-    description:
-      "Stands abordants des sujets concernant le green IT.",
+    description: "Stands abordants des sujets concernant le green IT.",
     analysis: `
       <p>
         La soirée "Let's Fix IT" a été bien plus qu'une simple conférence sur le
