@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { portfolioData } from "@/data/portfolio";
-import { ExternalLink, Hourglass, Target } from "lucide-react";
+import { ArrowLeft, ExternalLink, Hourglass, Target } from "lucide-react";
 
 export async function generateStaticParams() {
   return portfolioData.map((activity) => ({
@@ -31,6 +32,13 @@ export default async function PortfolioDetailPage({
 
   return (
     <div className="container mx-auto max-w-screen-lg px-4 py-12 sm:px-6 lg:px-8">
+      <Link
+        href="/portfolio"
+        className="text-foreground/80 hover:text-foreground mb-8 inline-flex items-center gap-2 text-sm font-medium transition-colors"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        Retour au portfolio
+      </Link>
       <div className="border-border/40 mb-10 border-b pb-6">
         <span className="text-foreground/60 text-sm font-semibold uppercase tracking-wider">
           {activity.theme}
