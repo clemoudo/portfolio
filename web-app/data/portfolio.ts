@@ -52,11 +52,11 @@ export const portfolioData: Activity[] = [
     proofs: [
       {
         label: "Virement #1 de l'EPHEC",
-        url: "/proofs/virementTutorat1.pdf",
+        url: "/proofs/virementTutorat1.jpg",
       },
       {
         label: "Virement #2 de l'EPHEC",
-        url: "/proofs/virementTutorat2.pdf",
+        url: "/proofs/virementTutorat2.jpg",
       },
     ],
     realHours: 9.75,
