@@ -1,12 +1,12 @@
-"use client"; // Ce composant aura de l'interactivité
+"use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import { portfolioData, Activity } from "@/data/portfolio";
-import { LayoutGrid, List } from "lucide-react";
 import { formatHours, formatDateRange } from "@/lib/formatters";
+import { LayoutGrid, List, ArrowUp, ArrowDown } from "lucide-react";
 
-// Vue Grille
+// Le composant GridView ne change pas
 const GridView = ({ activities }: { activities: Activity[] }) => (
   <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
     {activities.map((activity) => (
@@ -32,9 +32,15 @@ const GridView = ({ activities }: { activities: Activity[] }) => (
   </div>
 );
 
-// Vue Tableau
-const TableView = ({ activities }: { activities: Activity[] }) => {
-  // 1. Calculer les totaux en utilisant la méthode .reduce()
+// Type pour les props du TableView
+type TableViewProps = {
+  activities: Activity[];
+  sortKey: keyof Activity | null;
+  sortOrder: 'asc' | 'desc';
+  handleSort: (key: keyof Activity) => void;
+};
+
+const TableView = ({ activities, sortKey, sortOrder, handleSort }: TableViewProps) => {
   const totals = activities.reduce(
     (acc, activity) => {
       acc.real += activity.realHours;
@@ -44,67 +50,68 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
     { real: 0, valued: 0 }
   );
 
+  const SortIcon = ({ columnKey }: { columnKey: keyof Activity }) => {
+    const className = "h-4 w-4"; 
+
+    // Si la colonne n'est pas active, on rend un espace de la même taille que l'icône
+    if (sortKey !== columnKey) {
+      return <span className={className} />;
+    }
+    // Sinon, on affiche la bonne flèche
+    if (sortOrder === 'asc') return <ArrowUp className="h-4 w-4" />;
+    return <ArrowDown className={className} />; 
+  };
+
   return (
-    <div className="mt-12 overflow-x-auto">
-      <table className="divide-border/40 w-full divide-y">
+    <div className="mt-12 overflow-x-auto scrollbar-hide">
+      <table className="w-full table-auto divide-y divide-border/40">
         <thead className="bg-foreground/5">
           <tr>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
-            >
-              Titre
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              <button onClick={() => handleSort('title')} className="flex w-full items-center gap-2">
+                <span>Titre</span> <SortIcon columnKey="title" />
+              </button>
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
-            >
-              Thème
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              <button onClick={() => handleSort('theme')} className="flex w-full items-center gap-2">
+                <span>Thème</span> <SortIcon columnKey="theme" />
+              </button>
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
-            >
-              Date
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              <button onClick={() => handleSort('startDate')} className="flex w-full items-center gap-2">
+                <span>Date</span> <SortIcon columnKey="startDate" />
+              </button>
             </th>
-            <th
-              scope="col"
-              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
-            >
-              Heures (Réelles/Valorisées)
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              <button onClick={() => handleSort('realHours')} className="flex w-full items-center gap-2">
+                <span className="max-w-[44px]">Heures Réelles</span> <SortIcon columnKey="realHours" />
+              </button>
+            </th>
+            <th scope="col" className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">
+              <button onClick={() => handleSort('valuedHours')} className="flex w-full items-center gap-2">
+                <span className="max-w-[62px]">Heures Valorisées</span> <SortIcon columnKey="valuedHours" />
+              </button>
             </th>
           </tr>
         </thead>
-        <tbody className="divide-border/40 divide-y">
+        <tbody className="divide-y divide-border/40">
           {activities.map((activity) => (
             <tr key={activity.slug} className="hover:bg-foreground/5">
-              <td className="px-6 py-4">
-                <Link
-                  href={`/portfolio/${activity.slug}`}
-                  className="text-foreground font-semibold hover:underline"
-                >
-                  {activity.title}
-                </Link>
-              </td>
+              <td className="px-6 py-4"><Link href={`/portfolio/${activity.slug}`} className="font-semibold text-foreground hover:underline">{activity.title}</Link></td>
               <td className="px-6 py-4">{activity.theme}</td>
               <td className="px-6 py-4">{formatDateRange(activity.startDate, activity.endDate)}</td>
-              <td className="px-6 py-4">{`${formatHours(activity.realHours)} / ${formatHours(activity.valuedHours)}`}</td>
+              <td className="px-6 py-4">{formatHours(activity.realHours)}</td>
+              <td className="px-6 py-4">{formatHours(activity.valuedHours)}</td>
             </tr>
           ))}
         </tbody>
-
-        {/* 2. Ajouter la section <tfoot> pour afficher les totaux */}
-        <tfoot className="border-border/40 bg-foreground/5 border-t">
+        <tfoot className="border-t border-border/40 bg-foreground/5">
           <tr>
-            <td
-              colSpan={3}
-              className="px-6 py-4 text-right text-sm font-bold uppercase tracking-wider"
-            >
+            <td colSpan={3} className="px-6 py-4 text-right text-sm font-bold uppercase tracking-wider">
               Total
             </td>
-            <td className="px-6 py-4 text-sm font-bold">
-              {`${formatHours(totals.real)} / ${formatHours(totals.valued)}`}
-            </td>
+            <td className="px-6 py-4 text-sm font-bold">{formatHours(totals.real)}</td>
+            <td className="px-6 py-4 text-sm font-bold">{formatHours(totals.valued)}</td>
           </tr>
         </tfoot>
       </table>
@@ -112,38 +119,57 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
   );
 };
 
-// Le composant principal qui gère le basculement
 export default function PortfolioView() {
-  const [view, setView] = useState<"grid" | "table">("grid"); // Par défaut, la vue est 'grid'
+  const [view, setView] = useState<'grid' | 'table'>('grid');
+  const [sortKey, setSortKey] = useState<keyof Activity>('startDate');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
 
-  const sortedActivities = [...portfolioData].sort(
-    (a, b) => b.startDate.getTime() - a.startDate.getTime()
-  );
+  const handleSort = (key: keyof Activity) => {
+    if (sortKey === key) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortKey(key);
+      setSortOrder('asc'); // Par défaut, on trie en ascendant sur une nouvelle colonne
+    }
+  };
+
+  const sortedActivities = useMemo(() => {
+    if (!sortKey) return portfolioData;
+
+    const sorted = [...portfolioData].sort((a, b) => {
+      const aValue = a[sortKey];
+      const bValue = b[sortKey];
+
+      let comparison = 0;
+      if (aValue instanceof Date && bValue instanceof Date) {
+        comparison = aValue.getTime() - bValue.getTime();
+      } else if (typeof aValue === 'string' && typeof bValue === 'string') {
+        comparison = aValue.localeCompare(bValue);
+      } else if (typeof aValue === 'number' && typeof bValue === 'number') {
+        comparison = aValue - bValue;
+      }
+      
+      return sortOrder === 'asc' ? comparison : -comparison;
+    });
+    return sorted;
+  }, [sortKey, sortOrder]);
 
   return (
     <div>
       <div className="flex justify-end gap-2">
-        <button
-          onClick={() => setView("grid")}
-          className={`rounded-md p-2 transition-colors ${view === "grid" ? "bg-foreground/10" : "hover:bg-foreground/5"}`}
-          aria-label="Affichage en grille"
-        >
-          <LayoutGrid className="h-5 w-5" />
-        </button>
-        <button
-          onClick={() => setView("table")}
-          className={`rounded-md p-2 transition-colors ${view === "table" ? "bg-foreground/10" : "hover:bg-foreground/5"}`}
-          aria-label="Affichage en tableau"
-        >
-          <List className="h-5 w-5" />
-        </button>
+        <button onClick={() => setView('grid')} className={`rounded-md p-2 transition-colors ${view === 'grid' ? 'bg-foreground/10' : 'hover:bg-foreground/5'}`} aria-label="Affichage en grille"><LayoutGrid className="h-5 w-5" /></button>
+        <button onClick={() => setView('table')} className={`rounded-md p-2 transition-colors ${view === 'table' ? 'bg-foreground/10' : 'hover:bg-foreground/5'}`} aria-label="Affichage en tableau"><List className="h-5 w-5" /></button>
       </div>
 
-      {/* Affiche la bonne vue en fonction de l'état */}
-      {view === "grid" ? (
+      {view === 'grid' ? (
         <GridView activities={sortedActivities} />
       ) : (
-        <TableView activities={sortedActivities} />
+        <TableView 
+          activities={sortedActivities} 
+          handleSort={handleSort} 
+          sortKey={sortKey} 
+          sortOrder={sortOrder} 
+        />
       )}
     </div>
   );
