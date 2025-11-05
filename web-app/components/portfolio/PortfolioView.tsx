@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { portfolioData, Activity } from "@/data/portfolio";
 import { LayoutGrid, List } from "lucide-react";
-import { formatHours } from "@/lib/formatters";
+import { formatHours, formatDateRange } from "@/lib/formatters";
 
 // Vue Grille
 const GridView = ({ activities }: { activities: Activity[] }) => (
@@ -87,7 +87,7 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
                 </Link>
               </td>
               <td className="px-6 py-4">{activity.theme}</td>
-              <td className="px-6 py-4">{activity.date}</td>
+              <td className="px-6 py-4">{formatDateRange(activity.startDate, activity.endDate)}</td>
               <td className="px-6 py-4">{`${formatHours(activity.realHours)} / ${formatHours(activity.valuedHours)}`}</td>
             </tr>
           ))}
@@ -116,6 +116,10 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
 export default function PortfolioView() {
   const [view, setView] = useState<"grid" | "table">("grid"); // Par défaut, la vue est 'grid'
 
+  const sortedActivities = [...portfolioData].sort(
+    (a, b) => b.startDate.getTime() - a.startDate.getTime()
+  );
+
   return (
     <div>
       <div className="flex justify-end gap-2">
@@ -137,9 +141,9 @@ export default function PortfolioView() {
 
       {/* Affiche la bonne vue en fonction de l'état */}
       {view === "grid" ? (
-        <GridView activities={portfolioData} />
+        <GridView activities={sortedActivities} />
       ) : (
-        <TableView activities={portfolioData} />
+        <TableView activities={sortedActivities} />
       )}
     </div>
   );
