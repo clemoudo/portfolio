@@ -40,11 +40,11 @@ export function formatDateRange(startDate: Date, endDate?: Date): string {
   const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
   // Formateur pour le mois seul (ex: "septembre")
-  const monthFormatter = new Intl.DateTimeFormat('fr-FR', { month: 'long' });
+  const monthFormatter = new Intl.DateTimeFormat("fr-FR", { month: "long" });
   // Formateur pour le mois et l'année (ex: "septembre 2025")
-  const monthYearFormatter = new Intl.DateTimeFormat('fr-FR', {
-    month: 'long',
-    year: 'numeric',
+  const monthYearFormatter = new Intl.DateTimeFormat("fr-FR", {
+    month: "long",
+    year: "numeric",
   });
 
   const startMonthYear = monthYearFormatter.format(startDate);

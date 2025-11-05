@@ -47,7 +47,9 @@ export default async function PortfolioDetailPage({
         <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">
           {activity.title}
         </h1>
-        <p className="text-foreground/80 mt-4 text-lg">{formatDateRange(activity.startDate, activity.endDate)}</p>
+        <p className="text-foreground/80 mt-4 text-lg">
+          {formatDateRange(activity.startDate, activity.endDate)}
+        </p>
       </div>
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
         <div className="lg:col-span-2">
