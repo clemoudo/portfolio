@@ -9,7 +9,8 @@ export type Activity = {
   slug: string;
   title: string;
   theme: string;
-  date: string;
+  startDate: Date;
+  endDate?: Date;
   description: string;
   analysis: string;
   proofs?: Proof[];
@@ -22,7 +23,7 @@ export const portfolioData: Activity[] = [
   //   slug: "",
   //   title: "",
   //   theme: "",
-  //   date: "",
+  //   startDate: "",
   //   description:
   //     "",
   //   analysis: `
@@ -40,7 +41,8 @@ export const portfolioData: Activity[] = [
     slug: "tutorat-2024",
     title: "Tutorat en développement (JavaScript)",
     theme: "Soft skill",
-    date: "Septembre à décembre 2024",
+    startDate: new Date("2025-9-15"),
+    endDate: new Date("2025-12-20"),
     description:
       "Tutorat délivré à un étudiant de première année encadré par l'EPHEC.",
     analysis: `
@@ -84,7 +86,7 @@ export const portfolioData: Activity[] = [
     slug: "open-classrooms-react",
     title: "Formation React OpenClassrooms",
     theme: "Développement React",
-    date: "Mars 2025",
+    startDate: new Date("2025-3-10"),
     description: "Formation dans le but de débuter avec React.",
     analysis: `
       <p>
@@ -159,7 +161,7 @@ export const portfolioData: Activity[] = [
     title: "Formation cybersécurité RedSytem",
     theme:
       "Cybersécurité (phishing et ransomware + sécurité des appareils mobiles)",
-    date: "Novembre 2025",
+    startDate: new Date("2025-11-4"),
     description: "Formation de sensibilisation aux attaques communes.",
     analysis: `
       <p>
@@ -238,7 +240,7 @@ export const portfolioData: Activity[] = [
     slug: "labo-reseau",
     title: "Labo réseau sur du matériel physique",
     theme: "Réseau",
-    date: "Avril 2024",
+    startDate: new Date("2024-4-4"),
     description: "Manipulation de matériel Cisco physique.",
     analysis: `
       <p>
@@ -315,7 +317,8 @@ export const portfolioData: Activity[] = [
     slug: "cscbe-2025",
     title: "Cyber Security Challenge Belgium",
     theme: "Cybersécurité (CTF)",
-    date: "Mars 2025",
+    startDate: new Date("2025-3-14"),
+    endDate: new Date("2025-3-15"),
     description: "Capture th flag sur la cybersécurité.",
     analysis: `
       <p>
@@ -389,7 +392,7 @@ export const portfolioData: Activity[] = [
     slug: "lets-fix-it",
     title: "Let's fix IT",
     theme: "Green IT",
-    date: "Mars 2025",
+    startDate: new Date("2025-3-18"),
     description: "Stands abordants des sujets concernant le green IT.",
     analysis: `
       <p>
@@ -477,5 +480,70 @@ export const portfolioData: Activity[] = [
     ],
     realHours: 3.5,
     valuedHours: 3.5,
+  },
+  {
+    slug: "formation-azure",
+    title: "Formation cloud M365 et Azure",
+    theme: "Cloud computing",
+    startDate: new Date("2025-11-3"),
+    description:
+      "Présentation des solutions cloud de M365 et de l'infrastructure Azure.",
+    analysis: `
+      <p>
+        Cette introduction aux services cloud de Microsoft a été une excellente
+        porte d'entrée pour démystifier l'écosystème Azure et M365. En tant que
+        développeur, il est crucial de ne pas seulement maîtriser le code, mais
+        aussi de comprendre l'infrastructure sur laquelle nos applications sont
+        destinées à fonctionner. Cette session a parfaitement rempli ce rôle de
+        vue d'ensemble.
+      </p>
+      <p>
+        Les points clés que je retiens de cette présentation sont :
+      </p>
+      <ul>
+        <li>
+          <strong>La distinction fondamentale entre SaaS et IaaS/PaaS :</strong>
+          J'ai clairement saisi la différence entre Microsoft 365, qui est une
+          solution logicielle prête à l'emploi (SaaS - Software as a Service),
+          et Azure, qui est une plateforme sur laquelle on peut construire,
+          déployer et gérer ses propres applications (IaaS/PaaS -
+          Infrastructure/Platform as a Service). Pour moi, développeur, c'est
+          sur Azure que se situe le terrain de jeu.
+        </li>
+        <li>
+          <strong>La boîte à outils du développeur sur Azure :</strong> J'ai
+          particulièrement été intéressé par l'aperçu des services Azure
+          directement applicables à mon parcours. La facilité de déploiement
+          d'une application web via <strong>Azure App Service</strong>, la
+          gestion de bases de données scalables avec <strong>Azure SQL</strong>,
+          ou encore le potentiel des <strong>Azure Functions</strong> pour
+          créer des API "serverless" sont des solutions puissantes que je sais
+          maintenant exister.
+        </li>
+        <li>
+          <strong>L'importance de l'identité :</strong> La présentation de
+          l'annuaire <strong>Azure Active Directory (aujourd'hui Entra ID)
+          </strong> comme socle de la gestion des identités pour M365 et les
+          applications Azure m'a rappelé que la sécurité et l'authentification
+          sont des piliers centraux de toute architecture cloud moderne.
+        </li>
+      </ul>
+      <p>
+        En résumé, cette session, bien que courte, a solidifié ma compréhension
+        de l'architecture cloud et de la place que j'occupe en tant que
+        développeur au sein de cet écosystème. Elle m'a donné les repères
+        nécessaires pour savoir quels services explorer plus en profondeur à
+        l'avenir, et m'a motivé à obtenir une expérience pratique, par exemple
+        en déployant l'un de mes projets personnels sur Azure.
+      </p>
+    `,
+    proofs: [
+      {
+        label: "Participation",
+        url: "/proofs/azure_participation.pdf",
+      },
+    ],
+    realHours: 1,
+    valuedHours: 1,
   },
 ];

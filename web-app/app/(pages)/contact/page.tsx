@@ -27,7 +27,7 @@ export default function ContactPage() {
         {/* Carte Email */}
         <div className="border-border/40 bg-foreground/5 rounded-lg border p-8 text-center">
           <Mail className="text-foreground/80 mx-auto h-10 w-10" />
-          <h2 className="mt-4 text-xl font-semibold">Par Email</h2>
+          <h2 className="mt-4 text-xl font-semibold">Par email</h2>
           <p className="text-foreground/80 mt-2 text-lg">{email}</p>
           <a
             href={`mailto:${email}`}

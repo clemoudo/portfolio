@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { portfolioData } from "@/data/portfolio";
 import { ArrowLeft, ExternalLink, Hourglass, Target } from "lucide-react";
-import { formatHours } from "@/lib/formatters";
+import { formatHours, formatDateRange } from "@/lib/formatters";
 
 export async function generateStaticParams() {
   return portfolioData.map((activity) => ({
@@ -47,7 +47,9 @@ export default async function PortfolioDetailPage({
         <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">
           {activity.title}
         </h1>
-        <p className="text-foreground/80 mt-4 text-lg">{activity.date}</p>
+        <p className="text-foreground/80 mt-4 text-lg">
+          {formatDateRange(activity.startDate, activity.endDate)}
+        </p>
       </div>
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
         <div className="lg:col-span-2">
@@ -67,8 +69,7 @@ export default async function PortfolioDetailPage({
                   <h4 className="font-medium">Temps Investi</h4>
                   <p className="text-foreground/80 text-sm">
                     {formatHours(activity.realHours)} (Réel) /{" "}
-                    {formatHours(activity.valuedHours)}
-                    (Valorisé)
+                    {formatHours(activity.valuedHours)} (Valorisé)
                   </p>
                 </div>
               </div>

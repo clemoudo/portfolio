@@ -13,7 +13,7 @@ export default function ProjetProPage() {
 
       {/* Section 1: Description du projet */}
       <div className="prose mt-12 max-w-none">
-        <h2>Mon Objectif</h2>
+        <h2>Mon objectif</h2>
         <p>
           Mon objectif à moyen terme est de compléter mes études par un Master à
           l'UCL afin d'acquérir des compétences plus spécialisé dans un domaine.
@@ -72,7 +72,7 @@ export default function ProjetProPage() {
 
           {/* Colonne des Faiblesses */}
           <div className="border-border/40 bg-foreground/5 rounded-lg border p-6">
-            <h3 className="text-xl font-semibold">Axes d'Amélioration</h3>
+            <h3 className="text-xl font-semibold">Axes d'amélioration</h3>
             <ul className="prose mt-4 max-w-none list-disc pl-5">
               <li>
                 <strong>Optimisation et performance :</strong> Bien que je sois

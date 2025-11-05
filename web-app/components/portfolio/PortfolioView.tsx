@@ -1,12 +1,13 @@
-"use client"; // Ce composant aura de l'interactivité
+"use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import { portfolioData, Activity } from "@/data/portfolio";
+import { formatHours, formatDateRange } from "@/lib/formatters";
 import { LayoutGrid, List } from "lucide-react";
-import { formatHours } from "@/lib/formatters";
+import SortIcon from "./SortIcon";
 
-// Vue Grille
+// Le composant GridView ne change pas
 const GridView = ({ activities }: { activities: Activity[] }) => (
   <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
     {activities.map((activity) => (
@@ -32,9 +33,20 @@ const GridView = ({ activities }: { activities: Activity[] }) => (
   </div>
 );
 
-// Vue Tableau
-const TableView = ({ activities }: { activities: Activity[] }) => {
-  // 1. Calculer les totaux en utilisant la méthode .reduce()
+// Type pour les props du TableView
+type TableViewProps = {
+  activities: Activity[];
+  sortKey: keyof Activity | null;
+  sortOrder: "asc" | "desc";
+  handleSort: (key: keyof Activity) => void;
+};
+
+const TableView = ({
+  activities,
+  sortKey,
+  sortOrder,
+  handleSort,
+}: TableViewProps) => {
   const totals = activities.reduce(
     (acc, activity) => {
       acc.real += activity.realHours;
@@ -45,33 +57,89 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
   );
 
   return (
-    <div className="mt-12 overflow-x-auto">
-      <table className="divide-border/40 w-full divide-y">
+    <div className="scrollbar-hide mt-12 overflow-x-auto">
+      <table className="divide-border/40 w-full table-auto divide-y">
         <thead className="bg-foreground/5">
           <tr>
             <th
               scope="col"
               className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
             >
-              Titre
+              <button
+                onClick={() => handleSort("title")}
+                className="flex w-full items-center gap-2"
+              >
+                <span>Titre</span>
+                <SortIcon
+                  columnKey="title"
+                  sortKey={sortKey}
+                  sortOrder={sortOrder}
+                />
+              </button>
             </th>
             <th
               scope="col"
               className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
             >
-              Thème
+              <button
+                onClick={() => handleSort("theme")}
+                className="flex w-full items-center gap-2"
+              >
+                <span>Thème</span>
+                <SortIcon
+                  columnKey="theme"
+                  sortKey={sortKey}
+                  sortOrder={sortOrder}
+                />
+              </button>
             </th>
             <th
               scope="col"
               className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
             >
-              Date
+              <button
+                onClick={() => handleSort("startDate")}
+                className="flex w-full items-center gap-2"
+              >
+                <span>Date</span>
+                <SortIcon
+                  columnKey="startDate"
+                  sortKey={sortKey}
+                  sortOrder={sortOrder}
+                />
+              </button>
             </th>
             <th
               scope="col"
               className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
             >
-              Heures (Réelles/Valorisées)
+              <button
+                onClick={() => handleSort("realHours")}
+                className="flex w-full items-center gap-2"
+              >
+                <span className="max-w-[44px]">Heures Réelles</span>
+                <SortIcon
+                  columnKey="realHours"
+                  sortKey={sortKey}
+                  sortOrder={sortOrder}
+                />
+              </button>
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+            >
+              <button
+                onClick={() => handleSort("valuedHours")}
+                className="flex w-full items-center gap-2"
+              >
+                <span className="max-w-[62px]">Heures Valorisées</span>
+                <SortIcon
+                  columnKey="valuedHours"
+                  sortKey={sortKey}
+                  sortOrder={sortOrder}
+                />
+              </button>
             </th>
           </tr>
         </thead>
@@ -87,13 +155,14 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
                 </Link>
               </td>
               <td className="px-6 py-4">{activity.theme}</td>
-              <td className="px-6 py-4">{activity.date}</td>
-              <td className="px-6 py-4">{`${formatHours(activity.realHours)} / ${formatHours(activity.valuedHours)}`}</td>
+              <td className="px-6 py-4">
+                {formatDateRange(activity.startDate, activity.endDate)}
+              </td>
+              <td className="px-6 py-4">{formatHours(activity.realHours)}</td>
+              <td className="px-6 py-4">{formatHours(activity.valuedHours)}</td>
             </tr>
           ))}
         </tbody>
-
-        {/* 2. Ajouter la section <tfoot> pour afficher les totaux */}
         <tfoot className="border-border/40 bg-foreground/5 border-t">
           <tr>
             <td
@@ -103,7 +172,10 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
               Total
             </td>
             <td className="px-6 py-4 text-sm font-bold">
-              {`${formatHours(totals.real)} / ${formatHours(totals.valued)}`}
+              {formatHours(totals.real)}
+            </td>
+            <td className="px-6 py-4 text-sm font-bold">
+              {formatHours(totals.valued)}
             </td>
           </tr>
         </tfoot>
@@ -112,9 +184,40 @@ const TableView = ({ activities }: { activities: Activity[] }) => {
   );
 };
 
-// Le composant principal qui gère le basculement
 export default function PortfolioView() {
-  const [view, setView] = useState<"grid" | "table">("grid"); // Par défaut, la vue est 'grid'
+  const [view, setView] = useState<"grid" | "table">("grid");
+  const [sortKey, setSortKey] = useState<keyof Activity>("startDate");
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
+
+  const handleSort = (key: keyof Activity) => {
+    if (sortKey === key) {
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+    } else {
+      setSortKey(key);
+      setSortOrder("asc"); // Par défaut, on trie en ascendant sur une nouvelle colonne
+    }
+  };
+
+  const sortedActivities = useMemo(() => {
+    if (!sortKey) return portfolioData;
+
+    const sorted = [...portfolioData].sort((a, b) => {
+      const aValue = a[sortKey];
+      const bValue = b[sortKey];
+
+      let comparison = 0;
+      if (aValue instanceof Date && bValue instanceof Date) {
+        comparison = aValue.getTime() - bValue.getTime();
+      } else if (typeof aValue === "string" && typeof bValue === "string") {
+        comparison = aValue.localeCompare(bValue);
+      } else if (typeof aValue === "number" && typeof bValue === "number") {
+        comparison = aValue - bValue;
+      }
+
+      return sortOrder === "asc" ? comparison : -comparison;
+    });
+    return sorted;
+  }, [sortKey, sortOrder]);
 
   return (
     <div>
@@ -135,11 +238,15 @@ export default function PortfolioView() {
         </button>
       </div>
 
-      {/* Affiche la bonne vue en fonction de l'état */}
       {view === "grid" ? (
-        <GridView activities={portfolioData} />
+        <GridView activities={sortedActivities} />
       ) : (
-        <TableView activities={portfolioData} />
+        <TableView
+          activities={sortedActivities}
+          handleSort={handleSort}
+          sortKey={sortKey}
+          sortOrder={sortOrder}
+        />
       )}
     </div>
   );

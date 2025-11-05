@@ -28,7 +28,7 @@ const experiences = [
 
 const education = [
   {
-    degree: "Bachelier en Technologies de l'Informatique",
+    degree: "Bachelier en Technologies de l'informatique",
     school: "EPHEC, Louvain-la-Neuve",
     period: "2023 - 2026", // J'ai repris la date de l'expérience "Étudiant"
   },
@@ -36,7 +36,7 @@ const education = [
 
 const skills = [
   {
-    category: "Compétences Techniques",
+    category: "Compétences techniques",
     items: "React, Python, JavaScript, HTML5, CSS3, SQL, API RESTful",
   },
   { category: "Méthodologies", items: "Méthode Agile" },
@@ -118,7 +118,7 @@ export default function CVPage() {
         <section>
           <h2 className="flex items-center text-2xl font-semibold">
             <Star className="text-foreground/80 mr-3 h-6 w-6" />
-            Compétences & Soft Skills
+            Compétences & soft skills
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {skills.map((skill, index) => (
@@ -134,7 +134,7 @@ export default function CVPage() {
         <section>
           <h2 className="flex items-center text-2xl font-semibold">
             <Wrench className="text-foreground/80 mr-3 h-6 w-6" />
-            Logiciels & Outils
+            Logiciels & outils
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
             {tools.map((tool, index) => (
