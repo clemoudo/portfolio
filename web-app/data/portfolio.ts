@@ -478,4 +478,69 @@ export const portfolioData: Activity[] = [
     realHours: 3.5,
     valuedHours: 3.5,
   },
+  {
+    slug: "formation-azure",
+    title: "Formation cloud M365 et Azure",
+    theme: "Cloud computing",
+    date: "Novembre 2025",
+    description:
+      "Présentation des solutions cloud de M365 et de l'infrastructure Azure.",
+    analysis: `
+      <p>
+        Cette introduction aux services cloud de Microsoft a été une excellente
+        porte d'entrée pour démystifier l'écosystème Azure et M365. En tant que
+        développeur, il est crucial de ne pas seulement maîtriser le code, mais
+        aussi de comprendre l'infrastructure sur laquelle nos applications sont
+        destinées à fonctionner. Cette session a parfaitement rempli ce rôle de
+        vue d'ensemble.
+      </p>
+      <p>
+        Les points clés que je retiens de cette présentation sont :
+      </p>
+      <ul>
+        <li>
+          <strong>La distinction fondamentale entre SaaS et IaaS/PaaS :</strong>
+          J'ai clairement saisi la différence entre Microsoft 365, qui est une
+          solution logicielle prête à l'emploi (SaaS - Software as a Service),
+          et Azure, qui est une plateforme sur laquelle on peut construire,
+          déployer et gérer ses propres applications (IaaS/PaaS -
+          Infrastructure/Platform as a Service). Pour moi, développeur, c'est
+          sur Azure que se situe le terrain de jeu.
+        </li>
+        <li>
+          <strong>La boîte à outils du développeur sur Azure :</strong> J'ai
+          particulièrement été intéressé par l'aperçu des services Azure
+          directement applicables à mon parcours. La facilité de déploiement
+          d'une application web via <strong>Azure App Service</strong>, la
+          gestion de bases de données scalables avec <strong>Azure SQL</strong>,
+          ou encore le potentiel des <strong>Azure Functions</strong> pour
+          créer des API "serverless" sont des solutions puissantes que je sais
+          maintenant exister.
+        </li>
+        <li>
+          <strong>L'importance de l'identité :</strong> La présentation de
+          l'annuaire <strong>Azure Active Directory (aujourd'hui Entra ID)
+          </strong> comme socle de la gestion des identités pour M365 et les
+          applications Azure m'a rappelé que la sécurité et l'authentification
+          sont des piliers centraux de toute architecture cloud moderne.
+        </li>
+      </ul>
+      <p>
+        En résumé, cette session, bien que courte, a solidifié ma compréhension
+        de l'architecture cloud et de la place que j'occupe en tant que
+        développeur au sein de cet écosystème. Elle m'a donné les repères
+        nécessaires pour savoir quels services explorer plus en profondeur à
+        l'avenir, et m'a motivé à obtenir une expérience pratique, par exemple
+        en déployant l'un de mes projets personnels sur Azure.
+      </p>
+    `,
+    proofs: [
+      {
+        label: "Participation",
+        url: "/proofs/azure_participation.pdf",
+      },
+    ],
+    realHours: 1,
+    valuedHours: 1,
+  },
 ];

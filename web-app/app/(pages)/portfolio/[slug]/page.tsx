@@ -67,8 +67,7 @@ export default async function PortfolioDetailPage({
                   <h4 className="font-medium">Temps Investi</h4>
                   <p className="text-foreground/80 text-sm">
                     {formatHours(activity.realHours)} (Réel) /{" "}
-                    {formatHours(activity.valuedHours)}
-                    (Valorisé)
+                    {formatHours(activity.valuedHours)} (Valorisé)
                   </p>
                 </div>
               </div>
