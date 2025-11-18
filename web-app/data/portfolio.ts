@@ -307,7 +307,7 @@ export const portfolioData: Activity[] = [
       },
       {
         label: "Diplome",
-        url: "/proofs/labo_reseau_diplome.jpg", // TODO
+        url: "/proofs/labo_reseau_diplome.pdf",
       },
     ],
     realHours: 4,
@@ -472,6 +472,14 @@ export const portfolioData: Activity[] = [
       {
         label: "Invitation",
         url: "/proofs/letsfixit_invitation.pdf",
+      },
+      {
+        label: "Participation active #1",
+        url: "/proofs/letsfixit_participation_active_01.jpg",
+      },
+      {
+        label: "Participation active #2",
+        url: "/proofs/letsfixit_participation_active_02.jpg",
       },
       {
         label: "Enquête de satisfaction",
