@@ -486,8 +486,8 @@ export const portfolioData: Activity[] = [
         url: "/proofs/letsfixit_participation.pdf",
       },
     ],
-    realHours: 3.5,
-    valuedHours: 3.5,
+    realHours: 3,
+    valuedHours: 3,
   },
   {
     slug: "formation-azure",
