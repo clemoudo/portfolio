@@ -307,7 +307,7 @@ export const portfolioData: Activity[] = [
       },
       {
         label: "Diplome",
-        url: "/proofs/labo_reseau_diplome.jpg", // TODO
+        url: "/proofs/labo_reseau_diplome.pdf",
       },
     ],
     realHours: 4,
@@ -474,12 +474,20 @@ export const portfolioData: Activity[] = [
         url: "/proofs/letsfixit_invitation.pdf",
       },
       {
+        label: "Participation active #1",
+        url: "/proofs/letsfixit_participation_active_01.jpg",
+      },
+      {
+        label: "Participation active #2",
+        url: "/proofs/letsfixit_participation_active_02.jpg",
+      },
+      {
         label: "Enquête de satisfaction",
         url: "/proofs/letsfixit_participation.pdf",
       },
     ],
-    realHours: 3.5,
-    valuedHours: 3.5,
+    realHours: 3,
+    valuedHours: 3,
   },
   {
     slug: "formation-azure",
