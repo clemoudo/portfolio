@@ -560,9 +560,8 @@ export const portfolioData: Activity[] = [
     theme: "Cybersécurité (NIS2 et CyFun + CTF)",
     startDate: new Date("2025-11-28"),
     description: `
-      Événement dédié aux enjeux de la cybersécurité incluant des sessions sur 
-      les cadres réglementaires NIS2 et CyFun ainsi qu'une compétition 
-      technique de type Capture The Flag (CTF).
+      Événement dédié aux enjeux de la cybersécurité incluant des conférences
+      ainsi qu'un CTF.
       `,
     analysis: `
       <p>
@@ -617,6 +616,14 @@ export const portfolioData: Activity[] = [
       {
         label: "Présence #3",
         url: "/proofs/cyber_week_preuve_3.jpg",
+      },
+      {
+        label: "Équipe CTF",
+        url: "/proofs/cyber_week_equipe.png",
+      },
+      {
+        label: "Score CTF",
+        url: "/proofs/cyber_week_score.png",
       },
     ],
     realHours: 8,
