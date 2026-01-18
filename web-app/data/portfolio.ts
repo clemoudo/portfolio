@@ -23,7 +23,7 @@ export const portfolioData: Activity[] = [
   //   slug: "",
   //   title: "",
   //   theme: "",
-  //   startDate: "",
+  //   startDate: new Date()),
   //   description:
   //     "",
   //   analysis: `
@@ -553,5 +553,80 @@ export const portfolioData: Activity[] = [
     ],
     realHours: 1,
     valuedHours: 1,
+  },
+  {
+    slug: "cyberweek",
+    title: "Cyberweek 2025",
+    theme: "Cybersécurité (NIS2 et CyFun + CTF)",
+    startDate: new Date("2025-11-28"),
+    description: `
+      Événement dédié aux enjeux de la cybersécurité incluant des conférences
+      ainsi qu'un CTF.
+      `,
+    analysis: `
+      <p>
+        La Cyberweek 2025 a offert un équilibre pertinent entre les impératifs 
+        stratégiques de la cybersécurité et la réalité technique du terrain. Cette 
+        immersion m'a permis de comprendre que la sécurité d'un système ne repose pas 
+        uniquement sur la robustesse du code, mais aussi sur un cadre normatif et 
+        organisationnel strict.
+      </p>
+      <p>
+        Deux axes majeurs ont enrichi ma réflexion de développeur :
+      </p>
+      <ul>
+        <li>
+          <strong>La directive NIS2 et CyFun :</strong> La présentation des cadres 
+          réglementaires a mis en lumière la responsabilité accrue des entreprises 
+          dans la gestion des risques. J'ai pris conscience que la conformité n'est 
+          pas une simple contrainte administrative, mais un levier pour structurer 
+          la résilience d'une infrastructure. En tant que futur développeur, cela 
+          m'incite à intégrer les principes de 'Security by Design' non seulement 
+          comme une bonne pratique, mais comme une nécessité légale pour garantir 
+          la continuité des services essentiels.
+        </li>
+        <li>
+          <strong>Le Capture The Flag (CTF) :</strong> La partie technique m'a 
+          confronté à des vecteurs d'attaque concrets. Participer à ce CTF a été 
+          l'occasion d'éprouver ma capacité d'analyse sous pression et de 
+          comprendre la psychologie d'un attaquant. Identifier des vulnérabilités, 
+          qu'elles soient liées à des configurations réseau ou à des failles 
+          applicatives, renforce ma vigilance lors de l'écriture de mes propres 
+          scripts et middleware.
+        </li>
+      </ul>
+      <p>
+        En conclusion, cet événement a consolidé ma vision transversale de la 
+        cybersécurité. L'articulation entre les obligations légales (NIS2) et les 
+        défis techniques (CTF) souligne l'importance d'une approche holistique : un 
+        développeur efficace doit être capable de naviguer entre l'implémentation 
+        technique sécurisée et la compréhension des enjeux de gouvernance globale de 
+        l'information.
+      </p>
+    `,
+    proofs: [
+      {
+        label: "Présence #1",
+        url: "/proofs/cyber_week_preuve_1.jpg",
+      },
+      {
+        label: "Présence #2",
+        url: "/proofs/cyber_week_preuve_2.jpg",
+      },
+      {
+        label: "Présence #3",
+        url: "/proofs/cyber_week_preuve_3.jpg",
+      },
+      {
+        label: "Équipe CTF",
+        url: "/proofs/cyber_week_equipe.png",
+      },
+      {
+        label: "Score CTF",
+        url: "/proofs/cyber_week_score.png",
+      },
+    ],
+    realHours: 8,
+    valuedHours: 8,
   },
 ];
