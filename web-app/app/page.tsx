@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Download } from "lucide-react"; // Jeux d'icone
+import { ArrowRight, Download } from "lucide-react";
 
 export default function HomePage() {
   return (
