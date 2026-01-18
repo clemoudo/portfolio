@@ -1,5 +1,8 @@
 name: Code Quality Check
 
+permissions:
+  contents: read
+
 # Déclenche le workflow sur les push et les pull requests
 # vers la branche `main`. Adapte si ta branche s'appelle `master`.
 on:
