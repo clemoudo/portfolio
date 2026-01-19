@@ -36,6 +36,10 @@ export function formatHours(hours: number): string {
  * @returns Une chaîne de caractères formatée.
  */
 export function formatDateRange(startDate: Date, endDate?: Date): string {
+  // Sécurité : Vérifier si les dates sont valides avant de continuer
+  if (isNaN(startDate.getTime())) return "Date invalide";
+  if (endDate && isNaN(endDate.getTime())) return "Date invalide";
+
   // Helper pour mettre la première lettre en majuscule
   const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
