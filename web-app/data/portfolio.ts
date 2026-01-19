@@ -23,7 +23,8 @@ export const portfolioData: Activity[] = [
   //   slug: "",
   //   title: "",
   //   theme: "",
-  //   startDate: new Date()),
+  //   startDate: new Date(),
+  // // endDate: new Date(),
   //   description:
   //     "",
   //   analysis: `
@@ -41,7 +42,7 @@ export const portfolioData: Activity[] = [
     slug: "tutorat-2024",
     title: "Tutorat en développement (JavaScript)",
     theme: "Soft skill",
-    startDate: new Date("2025-9-15"),
+    startDate: new Date("2025-09-15"),
     endDate: new Date("2025-12-20"),
     description:
       "Tutorat délivré à un étudiant de première année encadré par l'EPHEC.",
@@ -86,7 +87,7 @@ export const portfolioData: Activity[] = [
     slug: "open-classrooms-react",
     title: "Formation React OpenClassrooms",
     theme: "Développement React",
-    startDate: new Date("2025-3-10"),
+    startDate: new Date("2025-03-10"),
     description: "Formation dans le but de débuter avec React.",
     analysis: `
       <p>
@@ -161,7 +162,7 @@ export const portfolioData: Activity[] = [
     title: "Formation cybersécurité RedSytem",
     theme:
       "Cybersécurité (phishing et ransomware + sécurité des appareils mobiles)",
-    startDate: new Date("2025-11-4"),
+    startDate: new Date("2025-11-04"),
     description: "Formation de sensibilisation aux attaques communes.",
     analysis: `
       <p>
@@ -240,7 +241,7 @@ export const portfolioData: Activity[] = [
     slug: "labo-reseau",
     title: "Labo réseau sur du matériel physique",
     theme: "Réseau",
-    startDate: new Date("2024-4-4"),
+    startDate: new Date("2024-04-04"),
     description: "Manipulation de matériel Cisco physique.",
     analysis: `
       <p>
@@ -317,8 +318,8 @@ export const portfolioData: Activity[] = [
     slug: "cscbe-2025",
     title: "Cyber Security Challenge Belgium",
     theme: "Cybersécurité (CTF)",
-    startDate: new Date("2025-3-14"),
-    endDate: new Date("2025-3-15"),
+    startDate: new Date("2025-03-14"),
+    endDate: new Date("2025-03-15"),
     description: "Capture th flag sur la cybersécurité.",
     analysis: `
       <p>
@@ -392,7 +393,7 @@ export const portfolioData: Activity[] = [
     slug: "lets-fix-it",
     title: "Let's fix IT",
     theme: "Green IT",
-    startDate: new Date("2025-3-18"),
+    startDate: new Date("2025-03-18"),
     description: "Stands abordants des sujets concernant le green IT.",
     analysis: `
       <p>
@@ -493,7 +494,7 @@ export const portfolioData: Activity[] = [
     slug: "formation-azure",
     title: "Formation cloud M365 et Azure",
     theme: "Cloud computing",
-    startDate: new Date("2025-11-3"),
+    startDate: new Date("2025-11-03"),
     description:
       "Présentation des solutions cloud de M365 et de l'infrastructure Azure.",
     analysis: `
