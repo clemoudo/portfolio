@@ -6,6 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-ubuntu)", "sans-serif"],
+        mono: ["var(--font-ubuntu-mono)", "monospace"],
+      },
       typography: ({ theme: _theme }) => ({
         DEFAULT: {
           css: {
