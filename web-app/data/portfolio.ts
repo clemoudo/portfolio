@@ -80,7 +80,7 @@ export const portfolioData: Activity[] = [
         url: "/proofs/virementTutorat2.jpg",
       },
     ],
-    realHours: 9.75,
+    realHours: 10,
     valuedHours: 9.75,
   },
   {
@@ -160,8 +160,7 @@ export const portfolioData: Activity[] = [
   {
     slug: "redsystem",
     title: "Formation cybersécurité RedSytem",
-    theme:
-      "Cybersécurité (phishing et ransomware + sécurité des appareils mobiles)",
+    theme: "Cybersécurité (phishing et ransomware)",
     startDate: new Date("2025-11-04"),
     description: "Formation de sensibilisation aux attaques communes.",
     analysis: `
@@ -316,11 +315,11 @@ export const portfolioData: Activity[] = [
   },
   {
     slug: "cscbe-2025",
-    title: "Cyber Security Challenge Belgium",
+    title: "Cyber Security Challenge Belgium 2025",
     theme: "Cybersécurité (CTF)",
     startDate: new Date("2025-03-14"),
     endDate: new Date("2025-03-15"),
-    description: "Capture th flag sur la cybersécurité.",
+    description: "Capture the flag sur la cybersécurité.",
     analysis: `
       <p>
         Ma participation au Cyber Security Challenge Belgium a été une
@@ -387,7 +386,7 @@ export const portfolioData: Activity[] = [
       },
     ],
     realHours: 6,
-    valuedHours: 4,
+    valuedHours: 6,
   },
   {
     slug: "lets-fix-it",
@@ -552,13 +551,13 @@ export const portfolioData: Activity[] = [
         url: "/proofs/azure_participation.pdf",
       },
     ],
-    realHours: 1,
-    valuedHours: 1,
+    realHours: 2,
+    valuedHours: 2,
   },
   {
     slug: "cyberweek",
     title: "Cyberweek 2025",
-    theme: "Cybersécurité (NIS2 et CyFun + CTF)",
+    theme: "Cybersécurité (Dev Day)",
     startDate: new Date("2025-11-28"),
     description: `
       Événement dédié aux enjeux de la cybersécurité incluant des conférences
@@ -627,7 +626,151 @@ export const portfolioData: Activity[] = [
         url: "/proofs/cyber_week_score.png",
       },
     ],
-    realHours: 8,
+    realHours: 10,
     valuedHours: 8,
+  },
+  {
+    slug: "open-classrooms-rag",
+    title: "Formation RAG OpenClassrooms",
+    theme: "Développement RAG",
+    startDate: new Date("2026-02-26"),
+    description: "Formation pour apprendre le déploiement d'un RAG.",
+    analysis: `
+      <p>
+        Cette formation sur le déploiement d'un système RAG
+        (Retrieval-Augmented Generation) a été une étape clé dans la
+        préparation de mon Travail de Fin d'Études (TFE). Mon projet de fin
+        d'études porte sur l'optimisation de la recherche documentaire au sein
+        du programme scolaire maternel, et l'approche RAG s'est imposée comme
+        la solution technique idéale.
+      </p>
+      <p>
+        L'aspect le plus intéressant de cet apprentissage a été de concevoir un
+        système RAG sans recourir à un LLM (Large Language Model) pour la
+        génération finale. L'objectif est purement axé sur la précision et la
+        rapidité de la récupération d'informations :
+      </p>
+      <ul>
+        <li>
+          <strong>Indexation et Vectorisation :</strong> J'ai appris à
+          transformer des documents textuels structurés en "embeddings"
+          (vecteurs numériques) afin de permettre une recherche sémantique bien
+          plus performante qu'une simple recherche par mots-clés.
+        </li>
+        <li>
+          <strong>Recherche de similarité :</strong> La compréhension des bases
+          de données vectorielles m'a permis de voir comment identifier quasi
+          instantanément les segments les plus pertinents du programme scolaire
+          en réponse à une requête précise.
+        </li>
+        <li>
+          <strong>Application concrète :</strong> En appliquant ces concepts à
+          mon TFE, je cherche à réduire drastiquement le temps de recherche
+          pour les enseignants, tout en évitant les risques d'hallucinations
+          propres aux modèles de langage classiques, garantissant ainsi la
+          fiabilité des sources pédagogiques citées.
+        </li>
+      </ul>
+      <p>
+        Cette compétence enrichit mon profil de développeur en y ajoutant une
+        expertise dans le traitement de l'information et l'intelligence
+        artificielle appliquée, des domaines en pleine expansion dans le
+        secteur technologique actuel.
+      </p>
+    `,
+    proofs: [
+      {
+        label: "Lien vers la formation",
+        url: "https://openclassrooms.com/fr/courses/8532116-mettez-en-place-un-rag-pour-un-llm",
+      },
+      {
+        label: "Durée",
+        url: "/proofs/oc_rag_duree.png",
+      },
+      {
+        label: "Nom, prénom et réalisation",
+        url: "/proofs/oc_rag_nom_prenom_real.png",
+      },
+    ],
+    realHours: 10,
+    valuedHours: 10,
+  },
+  {
+    slug: "cscbe-2026",
+    title: "Cyber Security Challenge Belgium 2026",
+    theme: "Cybersécurité (CTF)",
+    startDate: new Date("2026-02-27"),
+    endDate: new Date("2026-02-28"),
+    description: "Capture the flag sur la cybersécurité.",
+    analysis: `
+      <p>
+        Ma deuxième participation au Cyber Security Challenge Belgium (CSCBE) a
+        été l'occasion de confronter mes compétences à des épreuves d'un niveau
+        supérieur. J'ai choisi de consacrer l'essentiel de mon temps au
+        challenge "The Great Escape Plan", une épreuve complexe mêlant analyse
+        réseau, stéganographie et cryptographie.
+      </p>
+      <p>
+        Ma démarche de résolution s'est articulée en plusieurs étapes
+        systématiques :
+      </p>
+      <ul>
+        <li>
+          <strong>Analyse de trafic (Forensics) :</strong> À partir d'une
+          capture de paquets (.pcap), j'ai identifié un flux anormalement
+          dense de requêtes ICMP. L'examen des paquets a révélé des payloads
+          d'une taille inhabituelle, suggérant une exfiltration de données via
+          ce protocole.
+        </li>
+        <li>
+          <strong>Extraction automatisée :</strong> Pour isoler ces données,
+          j'ai utilisé <code>tshark</code> avec un filtre précis :
+          <code>--disable-protocol "hipercontracer" -Y "icmp" -T fields -e
+          icmp.data</code>. Cette commande m'a permis d'extraire les payloads
+          bruts vers un fichier texte.
+        </li>
+        <li>
+          <strong>Décodage multi-couches :</strong> Après avoir décodé le
+          contenu de la base64, j'ai obtenu un fichier vidéo (mp4) diffusant
+          une succession rapide de QR codes. J'ai dû extraire et lire chaque QR
+          code, puis décoder à nouveau leur contenu (base64) pour finalement
+          aboutir à une archive ZIP protégée.
+        </li>
+        <li>
+          <strong>Cryptanalyse :</strong> Pour la phase finale, j'ai tenté un
+          brute-force sur l'archive en utilisant <code>John the Ripper</code>
+          couplé à la célèbre wordlist <code>rockyou.txt</code>. 
+        </li>
+      </ul>
+      <p>
+        Bien que je n'aie pas réussi à craquer le mot de passe final avant la
+        fin du temps imparti, cette expérience a été extrêmement gratifiante.
+        Elle a validé ma capacité à mener une investigation technique de bout
+        en bout, à automatiser l'extraction de données et à pivoter entre
+        différents domaines de la sécurité. Cela souligne également
+        l'importance de la persévérance et de la rigueur méthodologique face à
+        des scénarios d'attaque réalistes.
+      </p>
+    `,
+    proofs: [
+      {
+        label: "Résultat",
+        url: "/proofs/cscbe_2026_results.jpg",
+      },
+      {
+        label: "Challenges #1",
+        url: "/proofs/cscbe_2026_challenges_1.png",
+      },
+      {
+        label: "Challenges #2",
+        url: "/proofs/cscbe_2026_challenges_2.png",
+      },
+      {
+        label: "Challenge principal",
+        url: "/proofs/cscbe_2026_main_challenge.png",
+      },
+    ],
+    realHours: 6,
+    valuedHours: 4,
   },
 ];
