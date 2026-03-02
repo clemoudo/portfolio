@@ -1,4 +1,5 @@
 import PortfolioView from "@/components/portfolio/PortfolioView";
+import { Suspense } from "react";
 
 export default function PortfolioPage() {
   return (
@@ -13,8 +14,9 @@ export default function PortfolioPage() {
         </p>
       </div>
 
-      {/* Affichez simplement le composant de vue */}
-      <PortfolioView />
+      <Suspense fallback={<div>Chargement du portfolio...</div>}>
+        <PortfolioView />
+      </Suspense>
     </div>
   );
 }
