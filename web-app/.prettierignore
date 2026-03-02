@@ -2,4 +2,3 @@ node_modules
 .next
 .pnpm-store
 pnpm-lock.yaml
-package.json

@@ -6,9 +6,9 @@ import linkedinIcon from "@/public/icons/linkedin.svg";
 // Informations extraites de votre CV
 const email = "c.vier@students.ephec.be";
 const phone = "+32 468 45 49 73";
-const location = "Ittre, Belgique";
-const githubUrl = "https://github.com/clemoudo/"; // J'ai repris l'URL de votre Footer
-const linkedinUrl = "https://linkedin.com/in/clément-v-26ab7938a/"; // J'ai repris l'URL de votre Footer
+const location = "Brabant Wallon, Belgique";
+const githubUrl = "https://github.com/clemoudo/";
+const linkedinUrl = "https://linkedin.com/in/clément-v-26ab7938a/";
 
 export default function ContactPage() {
   return (
