@@ -4,37 +4,37 @@ import { portfolioData } from "@/data/portfolio";
 import { ArrowLeft, ExternalLink, Hourglass, Target } from "lucide-react";
 import { formatHours, formatDateRange } from "@/lib/formatters";
 
-export async function generateStaticParams() {
-  return portfolioData.map((activity) => ({
-    slug: activity.slug,
-  }));
-}
+type PortfolioDetailPageProps = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
 
 async function getActivityData(slug: string) {
   const activity = portfolioData.find((act) => act.slug === slug);
-  if (!activity) {
-    notFound();
-  }
+  if (!activity) notFound();
   return activity;
 }
 
-type PortfolioDetailPageProps = {
-  params: Promise<{
-    slug: string;
-  }>;
-};
-
 export default async function PortfolioDetailPage({
   params,
+  searchParams,
 }: PortfolioDetailPageProps) {
-  // On attend explicitement que la promesse `params` soit résolue
-  const resolvedParams = await params;
+  const [resolvedParams, resolvedSearchParams] = await Promise.all([
+    params,
+    searchParams,
+  ]);
+
   const activity = await getActivityData(resolvedParams.slug);
+
+  const queryString = new URLSearchParams(
+    resolvedSearchParams as Record<string, string>
+  ).toString();
+  const backHref = `/portfolio${queryString ? `?${queryString}` : ""}`;
 
   return (
     <div className="container mx-auto max-w-screen-lg px-4 py-12 sm:px-6 lg:px-8">
       <Link
-        href="/portfolio"
+        href={backHref}
         className="text-foreground/80 hover:text-foreground mb-8 inline-flex items-center gap-2 text-sm font-medium transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />

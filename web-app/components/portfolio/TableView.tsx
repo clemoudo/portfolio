@@ -8,6 +8,7 @@ type TableViewProps = {
   sortKey: keyof Activity | null;
   sortOrder: "asc" | "desc";
   handleSort: (key: keyof Activity) => void;
+  currentQuery: string;
 };
 
 const TableView = ({
@@ -15,6 +16,7 @@ const TableView = ({
   sortKey,
   sortOrder,
   handleSort,
+  currentQuery,
 }: TableViewProps) => {
   const totals = activities.reduce(
     (acc, activity) => {
@@ -117,7 +119,7 @@ const TableView = ({
             <tr key={activity.slug} className="hover:bg-foreground/5">
               <td className="px-6 py-4">
                 <Link
-                  href={`/portfolio/${activity.slug}`}
+                  href={`/portfolio/${activity.slug}${currentQuery ? `?${currentQuery}` : ""}`}
                   className="text-foreground font-semibold hover:underline"
                 >
                   {activity.title}
