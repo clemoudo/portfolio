@@ -19,26 +19,26 @@ export type Activity = {
 };
 
 export const portfolioData: Activity[] = [
-  // {
-  //   slug: "",
-  //   title: "",
-  //   theme: "",
-  //   startDate: new Date(),
-  // // endDate: new Date(),
-  //   description:
-  //     "",
-  //   analysis: `
-  //   `,
-  //   proofs: [
-  //     {
-  //       label: "",
-  //       url: "",
-  //     },
-  //   ],
-  //   realHours: 0,
-  //   valuedHours: 0,
-  // },
   {
+    // {
+    //   slug: "",
+    //   title: "",
+    //   theme: "",
+    //   startDate: new Date(),
+    //   // endDate: new Date(),
+    //   description:
+    //     "",
+    //   analysis: `
+    //   `,
+    //   proofs: [
+    //     {
+    //       label: "",
+    //       url: "",
+    //     },
+    //   ],
+    //   realHours: 0,
+    //   valuedHours: 0,
+    // },
     slug: "tutorat-2024",
     title: "Tutorat en développement (JavaScript)",
     theme: "Soft skill",
@@ -557,7 +557,7 @@ export const portfolioData: Activity[] = [
   {
     slug: "cyberweek",
     title: "Cyberweek 2025",
-    theme: "Cybersécurité (Dev Day)",
+    theme: "Cybersécurité (salon cybersécurité)",
     startDate: new Date("2025-11-28"),
     description: `
       Événement dédié aux enjeux de la cybersécurité incluant des conférences
@@ -755,7 +755,7 @@ export const portfolioData: Activity[] = [
     proofs: [
       {
         label: "Résultat",
-        url: "/proofs/cscbe_2026_results.jpg",
+        url: "/proofs/cscbe_2026_results.png",
       },
       {
         label: "Challenges #1",
@@ -772,5 +772,79 @@ export const portfolioData: Activity[] = [
     ],
     realHours: 6,
     valuedHours: 4,
+  },
+  {
+    slug: "webinar-datadog-aws",
+    title: "Webinaire Datadog x AWS",
+    theme: "Observabilité & Cloud",
+    startDate: new Date("2026-02-17"),
+    description:
+      "Webinaire sur l'observabilité et le monitoring avec Datadog et AWS.",
+    analysis: `
+      <p>
+        Ce webinaire, co-organisé par Datadog et AWS, a été une immersion directe 
+        dans les enjeux de l'observabilité pour les architectures cloud modernes. 
+        L'objectif principal était de comprendre comment corréler les données de 
+        performance pour réduire le temps moyen de résolution (MTTR).
+      </p>
+      <p>
+        Les points clés abordés ont enrichi ma vision de l'exploitation logicielle :
+      </p>
+      <ul>
+        <li>
+          <strong>Les trois piliers de l'observabilité :</strong> La session a 
+          rappelé l'importance de l'unification des métriques, des logs et du 
+          tracing distribué (APM). Voir comment Datadog ingère ces données depuis 
+          les services AWS (comme Lambda, ECS ou RDS) m'a permis de comprendre 
+          l'intérêt d'une plateforme centralisée par rapport à des outils isolés.
+        </li>
+        <li>
+          <strong>Le Monitoring Proactif :</strong> Au-delà du simple tableau de 
+          bord, j'ai découvert l'utilisation des "Watchdogs" basés sur l'IA pour 
+          détecter automatiquement des anomalies sans configuration manuelle de 
+          seuils. C'est une approche qui change radicalement la gestion des 
+          incidents.
+        </li>
+        <li>
+          <strong>Corrélation Full-Stack :</strong> Un aspect marquant a été la 
+          démonstration de la corrélation entre les erreurs frontend (via le RUM 
+          - Real User Monitoring) et les traces backend. En tant que futur 
+          développeur Full-Stack, savoir que l'on peut remonter d'un clic 
+          inefficace d'un utilisateur jusqu'à la ligne de code exacte en échec 
+          dans un microservice est une révélation pour le débogage.
+        </li>
+      </ul>
+      <p>
+        En conclusion, ce webinaire a souligné que l'observabilité ne doit pas 
+        être une réflexion après-coup, mais un élément intégré dès la phase de 
+        développement. Cette culture du monitoring me permettra de livrer des 
+        applications non seulement fonctionnelles, mais aussi hautement 
+        maintenables et performantes en production.
+      </p>
+    `,
+    proofs: [
+      {
+        label: "Confirmation d'inscription",
+        url: "/proofs/ddog_inscription.pdf",
+      },
+      {
+        label: "Capture - Introduction",
+        url: "/proofs/ddog_intro.jpeg",
+      },
+      {
+        label: "Capture - Plan",
+        url: "/proofs/ddog_plan.jpeg",
+      },
+      {
+        label: "Capture - Milieu de session",
+        url: "/proofs/ddog_middle.jpeg",
+      },
+      {
+        label: "Capture - Fin de session",
+        url: "/proofs/ddog_end.jpeg",
+      },
+    ],
+    realHours: 1,
+    valuedHours: 1,
   },
 ];
