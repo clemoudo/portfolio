@@ -22,7 +22,7 @@ export default function HomePage() {
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
-            href="/clement_vier_cv.pdf"
+            href="/cv/clement_vier_cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="border-border/40 hover:bg-foreground/5 flex items-center justify-center gap-2 rounded-md border bg-transparent px-6 py-3 text-sm font-medium transition-colors"
