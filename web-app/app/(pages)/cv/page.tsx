@@ -1,4 +1,3 @@
-// app/(pages)/cv/page.tsx
 import Link from "next/link";
 import { Download, Briefcase, GraduationCap, Star, Wrench } from "lucide-react";
 
@@ -30,7 +29,7 @@ const education = [
   {
     degree: "Bachelier en Technologies de l'informatique",
     school: "EPHEC, Louvain-la-Neuve",
-    period: "2023 - 2026", // J'ai repris la date de l'expérience "Étudiant"
+    period: "2023 - 2026",
   },
 ];
 
@@ -68,7 +67,7 @@ export default function CVPage() {
           Curriculum Vitae
         </h1>
         <Link
-          href="/clement_vier_cv.pdf" // Assurez-vous que le nom du fichier est correct
+          href="/cv/clement_vier_cv.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-foreground text-background hover:bg-foreground/80 flex w-full items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-medium transition-colors sm:w-auto"

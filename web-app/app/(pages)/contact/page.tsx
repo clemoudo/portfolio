@@ -3,8 +3,7 @@ import Image from "next/image";
 import githubIcon from "@/public/icons/github.svg";
 import linkedinIcon from "@/public/icons/linkedin.svg";
 
-// Informations extraites de votre CV
-const email = "c.vier@students.ephec.be";
+const email = "contact@clementvier.be";
 const phone = "+32 468 45 49 73";
 const location = "Brabant Wallon, Belgique";
 const githubUrl = "https://github.com/clemoudo/";
