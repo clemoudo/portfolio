@@ -52,4 +52,4 @@ jobs:
 
       # 6. Vérifie le formatage du code avec Prettier (en mode --check)
       - name: Check code formatting
-        run: pnpm format:check
+        run: pnpm format
