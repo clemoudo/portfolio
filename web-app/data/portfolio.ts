@@ -389,8 +389,8 @@ export const portfolioData: Activity[] = [
     valuedHours: 6,
   },
   {
-    slug: "lets-fix-it",
-    title: "Let's fix IT",
+    slug: "lets-fix-it-2025",
+    title: "Let's fix IT 2025",
     theme: "Green IT",
     startDate: new Date("2025-03-18"),
     description: "Stands abordants des sujets concernant le green IT.",
@@ -607,15 +607,15 @@ export const portfolioData: Activity[] = [
     proofs: [
       {
         label: "Présence #1",
-        url: "/proofs/cyber_week_preuve_1.jpg",
+        url: "/proofs/cyber_week_preuve_01.jpg",
       },
       {
         label: "Présence #2",
-        url: "/proofs/cyber_week_preuve_2.jpg",
+        url: "/proofs/cyber_week_preuve_02.jpg",
       },
       {
         label: "Présence #3",
-        url: "/proofs/cyber_week_preuve_3.jpg",
+        url: "/proofs/cyber_week_preuve_03.jpg",
       },
       {
         label: "Équipe CTF",
@@ -846,5 +846,127 @@ export const portfolioData: Activity[] = [
     ],
     realHours: 1,
     valuedHours: 1,
+  },
+  {
+    slug: "lets-fix-it-2026",
+    title: "Let's fix IT 2026",
+    theme: "Green IT",
+    startDate: new Date("2026-03-19"),
+    description: "Stands abordants des sujets concernant le green IT.",
+    analysis: `
+      <p>
+        Ma participation à l'édition 2026 de "Let's Fix IT" a été marquée par des
+        échanges techniques riches avec le kot à projet 
+        <a 
+          href="https://wiki.louvainlinux.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Louvain-li-Nux
+        </a>. Ces discussions ont porté sur mon utilisation quotidienne d'Ubuntu 
+        et la résolution de problèmes spécifiques rencontrés sur cette distribution.
+      </p>
+      <p>
+        Cette immersion dans l'écosystème open source m'a conduit à réévaluer mes 
+        outils de travail :
+      </p>
+      <ul>
+        <li>
+          <strong>Transition vers Vscodium :</strong> Suite aux conseils reçus, 
+          j'ai adopté <strong>Vscodium</strong>, une version de VS Code débarrassée 
+          de la télémétrie de Microsoft, renforçant ainsi mon alignement avec les 
+          valeurs du logiciel libre et de la vie privée.
+        </li>
+        <li>
+          <strong>Optimisation du workflow :</strong> J'ai découvert des outils 
+          puissants comme <strong>Blender</strong> pour la 3D, 
+          <strong>Obsidian</strong> pour la gestion de ma base de connaissances 
+          personnelle, et une extension Vscodium pour la compilation 
+          <strong>LaTeX</strong>, ce qui améliore ma productivité pour la rédaction 
+          de documents techniques.
+        </li>
+        <li>
+          <strong>Maintenance matérielle :</strong> Au-delà du logiciel, j'ai 
+          appris des bonnes pratiques concrètes pour l'entretien physique de mon 
+          ordinateur portable, un aspect crucial pour prolonger la durée de vie 
+          du matériel et réduire mon empreinte numérique (Green IT).
+        </li>
+      </ul>
+      <p>
+        En résumé, cet événement a consolidé ma maîtrise de l'environnement Linux 
+        et m'a permis de bâtir une suite logicielle plus éthique et performante, 
+        tout en acquérant les réflexes nécessaires à la pérennité de mon matériel.
+      </p>
+    `,
+    proofs: [
+      {
+        label: "Participation active",
+        url: "/proofs/letsfixit-2026_participation_active.pdf",
+      },
+      {
+        label: "Enquête de satisfaction",
+        url: "/proofs/letsfixit-2026_participation.pdf",
+      },
+    ],
+    realHours: 2.5,
+    valuedHours: 2.5,
+  },
+  {
+    slug: "open-classrooms-ansible",
+    title: "Formation Ansible OpenClassrooms",
+    theme: "CI/CD",
+    startDate: new Date("2026-03-20"),
+    endDate: new Date("2026-03-27"),
+    description: "Formation pour apprendre les bases d'Ansible.",
+    analysis: `
+      <p>
+        Cette formation sur <strong>Ansible</strong> via OpenClassrooms a été 
+        directement motivée par les besoins techniques de mon <strong>Travail de 
+        Fin d'Études (TFE)</strong>. Mon objectif est d'intégrer l'automatisation 
+        de la configuration au sein de mon pipeline <strong>CI/CD</strong> pour 
+        garantir des déploiements reproductibles et sans erreur.
+      </p>
+      <p>
+        Les compétences acquises lors de ce cours incluent :
+      </p>
+      <ul>
+        <li>
+          <strong>Gestion d'inventaire :</strong> Apprendre à structurer les 
+          parcs de serveurs de manière logique.
+        </li>
+        <li>
+          <strong>Playbooks :</strong> Écrire des scripts YAML pour automatiser 
+          l'installation de services, la gestion des utilisateurs et la 
+          sécurisation des machines distantes.
+        </li>
+        <li>
+          <strong>Idempotence :</strong> Comprendre ce principe fondamental 
+          d'Ansible qui permet de réexécuter des configurations sans introduire 
+          d'effets de bord indésirables.
+        </li>
+      </ul>
+      <p>
+        En conclusion, la maîtrise d'Ansible est un atout majeur pour mon TFE, 
+        car elle me permet de transformer mon infrastructure en code (IaC), 
+        réduisant ainsi le temps de maintenance et assurant une cohérence 
+        totale entre mes environnements de développement et de production.
+      </p>
+    `,
+    proofs: [
+      {
+        label: "Lien vers la formation",
+        url: "https://openclassrooms.com/fr/courses/2035796-utilisez-ansible-pour-automatiser-vos-taches-de-configuration",
+      },
+      {
+        label: "Durée",
+        url: "/proofs/oc_ansible_duree.png",
+      },
+      {
+        label: "Nom, prénom et réalisation",
+        url: "/proofs/oc_ansible_nom_prenom_real.png",
+      },
+    ],
+    realHours: 6,
+    valuedHours: 2,
   },
 ];
