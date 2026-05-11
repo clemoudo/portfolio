@@ -1,10 +1,9 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import githubIcon from "@/public/icons/github.svg";
 import linkedinIcon from "@/public/icons/linkedin.svg";
 
 const email = "contact@clementvier.be";
-const phone = "+32 468 45 49 73";
 const location = "Brabant Wallon, Belgique";
 const githubUrl = "https://github.com/clemoudo/";
 const linkedinUrl = "https://linkedin.com/in/clément-v-26ab7938a/";
@@ -37,17 +36,10 @@ export default function ContactPage() {
         </div>
 
         {/* Grille d'informations supplémentaires */}
-        <div className="grid grid-cols-1 gap-6 text-center sm:grid-cols-2">
-          <div className="border-border/40 bg-foreground/5 rounded-lg border p-6">
-            <Phone className="text-foreground/80 mx-auto h-8 w-8" />
-            <h3 className="mt-3 font-semibold">Téléphone</h3>
-            <p className="text-foreground/80">{phone}</p>
-          </div>
-          <div className="border-border/40 bg-foreground/5 rounded-lg border p-6">
-            <MapPin className="text-foreground/80 mx-auto h-8 w-8" />
-            <h3 className="mt-3 font-semibold">Localisation</h3>
-            <p className="text-foreground/80">{location}</p>
-          </div>
+        <div className="border-border/40 bg-foreground/5 rounded-lg border p-6 text-center">
+          <MapPin className="text-foreground/80 mx-auto h-8 w-8" />
+          <h3 className="mt-3 font-semibold">Localisation</h3>
+          <p className="text-foreground/80">{location}</p>
         </div>
 
         {/* Liens Sociaux */}
