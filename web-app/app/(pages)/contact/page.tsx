@@ -6,7 +6,7 @@ import linkedinIcon from "@/public/icons/linkedin.svg";
 const email = "contact@clementvier.be";
 const location = "Brabant Wallon, Belgique";
 const githubUrl = "https://github.com/clemoudo/";
-const linkedinUrl = "https://linkedin.com/in/clément-v-26ab7938a/";
+const linkedinUrl = "https://www.linkedin.com/in/clément-vier-26ab7938a/";
 
 export default function ContactPage() {
   return (
