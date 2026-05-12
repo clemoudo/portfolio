@@ -20,7 +20,7 @@ export default function Footer() {
             GitHub
           </Link>
           <Link
-            href="https://linkedin.com/in/clément-v-26ab7938a/"
+            href="https://www.linkedin.com/in/clément-vier-26ab7938a/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-foreground/80 transition-colors"
